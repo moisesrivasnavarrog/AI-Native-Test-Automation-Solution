@@ -1,0 +1,34 @@
+# Keeps the Starter Kit itself healthy: runs both environment
+# validators so broken scripts or docs drift are caught before
+# students hit them.
+name: Validate Starter Kit
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  verify-environment:
+    name: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        # Windows + Ubuntu only: hosted macOS runners were unreliable
+        # for this account even after the repo went public (jobs sat
+        # queued then cancelled). Uncomment macos-latest to retry
+        # later — it adds BSD coverage of the .sh script.
+        os: [windows-latest, ubuntu-latest]
+        # os: [windows-latest, macos-latest, ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run bash validator
+        if: runner.os != 'Windows'
+        run: bash scripts/verify-environment.sh
+
+      - name: Run PowerShell validator
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: ./scripts/verify-environment.ps1
