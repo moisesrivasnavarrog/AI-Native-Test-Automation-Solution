@@ -1,12 +1,22 @@
-# Runs the starter/ Playwright project on every push and PR so the
-# recovery path itself stays green — and so students who publish this
-# repository see a real "Playwright Tests" run in their Actions tab.
+# Runs the starter/ Playwright project on every push to main and on
+# every PR so the recovery path itself stays green — and so students
+# who publish this repository see a real "Playwright Tests" run in
+# their Actions tab. See docs/ci-quality-gates.md for the quality
+# gates, artifacts, and how to mark this check as required.
 name: Playwright Tests
 
 on:
   push:
+    branches: [main]
   pull_request:
   workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: playwright-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   test:
@@ -25,9 +35,19 @@ jobs:
 
       - run: npm ci
 
+      - name: Typecheck
+        run: npm run typecheck
+
       - run: npx playwright install --with-deps
 
-      - run: npx playwright test
+      # API suite (DummyJSON): request-context only, one project is
+      # enough — it does not exercise a browser.
+      - name: API tests
+        run: npx playwright test tests/api --project=chromium
+
+      # UI suite (SauceDemo + scaffold example) across all browsers.
+      - name: UI tests
+        run: npx playwright test tests/saucedemo.spec.ts tests/example.spec.ts
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
@@ -35,3 +55,12 @@ jobs:
           name: playwright-report
           path: starter/playwright-report/
           retention-days: 30
+
+      # Traces and screenshots land in test-results/ — keep them only
+      # when something failed so the evidence is downloadable.
+      - uses: actions/upload-artifact@v4
+        if: ${{ failure() }}
+        with:
+          name: test-results
+          path: starter/test-results/
+          retention-days: 7
