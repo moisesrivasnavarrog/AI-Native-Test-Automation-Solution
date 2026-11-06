@@ -6,7 +6,7 @@ validates the `starter/` project on every pull request, on pushes to
 
 ## What the check runs
 
-The single `test` job applies three gates in order. Each gate must
+The single `test` job applies four gates in order. Each gate must
 exit `0` — a failure stops the job and fails the check. No gate uses
 `continue-on-error`, `|| true`, or any other construct that would
 turn a failure into a pass.
@@ -15,6 +15,7 @@ turn a failure into a pass.
 | ---- | ------- | ----------------- |
 | Typecheck | `npm run typecheck` (`tsc --noEmit`) | `starter/tsconfig.json` strict mode over all `*.ts` |
 | API tests | `npx playwright test tests/api --project=chromium` | DummyJSON suite in `tests/api/` (request context only — no browser exercised, so one project suffices) |
+| Observability unit tests | `npx playwright test tests/observability --project=chromium` | Pure-logic tests for the observability pipeline (`starter/observability/`) — parser, metrics, history, report |
 | UI tests | `npx playwright test tests/saucedemo.spec.ts tests/example.spec.ts` | SauceDemo suite + scaffold example across chromium, firefox, webkit |
 
 Reproduce locally:
@@ -24,6 +25,7 @@ cd starter
 npm ci
 npm run typecheck
 npx playwright test tests/api --project=chromium
+npx playwright test tests/observability --project=chromium
 npx playwright test tests/saucedemo.spec.ts tests/example.spec.ts
 ```
 
@@ -32,7 +34,12 @@ npx playwright test tests/saucedemo.spec.ts tests/example.spec.ts
 | Artifact | When | Contents | Retention |
 | -------- | ---- | -------- | --------- |
 | `playwright-report` | Always (unless cancelled) | Playwright HTML report | 30 days |
+| `observability-results` | Always (unless cancelled) | Per-gate Playwright JSON reports (`api-results.json`, `unit-results.json`, `ui-results.json`) for the observability pipeline | 30 days |
 | `test-results` | On failure only | Traces and screenshots (`trace: on-first-retry` output) | 7 days |
+
+Each test step sets `PW_OBSERVABILITY_JSON` so the JSON reporter writes
+a distinct file per gate instead of overwriting a shared one. See
+`docs/observability.md` for how these files are normalized and reported.
 
 ## Security posture
 

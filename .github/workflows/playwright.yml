@@ -44,10 +44,22 @@ jobs:
       # enough — it does not exercise a browser.
       - name: API tests
         run: npx playwright test tests/api --project=chromium
+        env:
+          PW_OBSERVABILITY_JSON: observability/last-run/api-results.json
+
+      # Observability pipeline unit tests (pure logic — one project is
+      # enough). Gate on them like any other suite: an observability bug
+      # must fail the check, not be hidden.
+      - name: Observability unit tests
+        run: npx playwright test tests/observability --project=chromium
+        env:
+          PW_OBSERVABILITY_JSON: observability/last-run/unit-results.json
 
       # UI suite (SauceDemo + scaffold example) across all browsers.
       - name: UI tests
         run: npx playwright test tests/saucedemo.spec.ts tests/example.spec.ts
+        env:
+          PW_OBSERVABILITY_JSON: observability/last-run/ui-results.json
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
@@ -55,6 +67,17 @@ jobs:
           name: playwright-report
           path: starter/playwright-report/
           retention-days: 30
+
+      # Structured JSON results for the observability pipeline —
+      # uploaded on success and failure alike so green runs also leave
+      # evidence. Only *.json land in observability/last-run/.
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: observability-results
+          path: starter/observability/last-run/
+          retention-days: 30
+          if-no-files-found: ignore
 
       # Traces and screenshots land in test-results/ — keep them only
       # when something failed so the evidence is downloadable.

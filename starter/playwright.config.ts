@@ -22,7 +22,20 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [['list'], ['html']],
+  /* The JSON reporter feeds the observability pipeline               */
+  /* (observability/). PW_OBSERVABILITY_JSON lets CI give each test    */
+  /* step its own results file instead of overwriting one shared file. */
+  reporter: [
+    ['list'],
+    ['html'],
+    [
+      'json',
+      {
+        outputFile:
+          process.env.PW_OBSERVABILITY_JSON ?? 'observability/last-run/results.json',
+      },
+    ],
+  ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
