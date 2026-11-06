@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "1.0.0",
+  "run": {
+    "runId": "gha:42308478134:1:test:api",
+    "source": "github-actions",
+    "importedAt": "2026-11-06T23:26:38.519Z",
+    "executedAt": "2026-11-06T22:58:16.609Z",
+    "commitSha": "a1e52f98b3ab9768ffa186943658f87bf70897dc",
+    "branch": "main",
+    "workflow": {
+      "name": "Playwright Tests",
+      "runId": "42308478134",
+      "runAttempt": "1",
+      "job": "test",
+      "url": "https://github.com/moisesrivasnavarrog/AI-Native-Test-Automation-Solution/actions/runs/42308478134"
+    },
+    "playwrightVersion": "1.64.1",
+    "completeness": "complete",
+    "completenessReason": null,
+    "provenance": {
+      "run.executedAt": "stats.startTime",
+      "summary.durationMs": "stats.duration",
+      "tests[].testKey": "sha256(projectName|spec.file|suitePath|spec.title)",
+      "tests[].outcome": "tests[].status (expected→passed, unexpected→failed)",
+      "tests[].expectedStatus": "tests[].expectedStatus",
+      "tests[].durationMs": "sum(tests[].results[].duration)",
+      "tests[].attempts[]": "tests[].results[] {status,duration,retry,startTime,error}",
+      "run.commitSha": "env GITHUB_SHA or `git rev-parse HEAD`",
+      "run.branch": "env GITHUB_REF_NAME or `git rev-parse --abbrev-ref HEAD`",
+      "run.workflow": "env GITHUB_WORKFLOW/GITHUB_RUN_ID/GITHUB_RUN_ATTEMPT/GITHUB_JOB",
+      "run.playwrightVersion": "node_modules/@playwright/test/package.json"
+    }
+  },
+  "suite": {
+    "projectSet": [
+      "chromium"
+    ],
+    "specFileCount": 1,
+    "specFiles": [
+      "api/products.spec.ts"
+    ]
+  },
+  "summary": {
+    "total": 1,
+    "passed": 1,
+    "failed": 0,
+    "flaky": 0,
+    "skipped": 0,
+    "unknown": 0,
+    "durationMs": 623.788
+  },
+  "tests": [
+    {
+      "testKey": "f5b755fea4bed4a3",
+      "title": "returns the requested product by id",
+      "suitePath": [
+        "api/products.spec.ts",
+        "DummyJSON Products API"
+      ],
+      "file": "api/products.spec.ts",
+      "project": "chromium",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 144,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 144,
+          "startTime": "2026-11-06T22:58:17.041Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    }
+  ],
+  "evidence": {
+    "htmlReport": "playwright-report/index.html",
+    "artifactName": null
+  }
+}

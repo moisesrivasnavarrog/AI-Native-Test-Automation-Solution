@@ -1,10 +1,14 @@
-# Starter — Recovery Playwright Project
+# Starter — Recovery Playwright Project (course evolution)
 
-This directory is a **ready-to-run Playwright + TypeScript project** —
-the recovery path for Lab 0. It is not the completed solution and not
-the enterprise framework. You will build that framework during the
-course; this project exists only so that one broken environment never
-blocks your progress.
+This directory began as a **ready-to-run Playwright + TypeScript
+project** — the recovery path for Lab 0. It has since evolved through
+course increments into the capstone reference solution: Page Object
+Model + fixtures, a DummyJSON API suite, CI quality gates, and an
+observability pipeline. The Lab-0 recovery instructions below still
+apply.
+
+> Capstone docs live in `../docs/`: test-strategy, architecture,
+> traceability, risk-register, adr/, capstone-review, capstone-defense.
 
 ## When to use it
 
@@ -89,10 +93,18 @@ cannot reach. See
 [../docs/troubleshooting.md](../docs/troubleshooting.md) for the exact
 endpoints to send to your IT team.
 
-## What this project intentionally is not
+## What this project is now
 
-This is the plain output of a Playwright initializer plus pinned
-dependencies. It has **no** Page Objects, fixtures, API clients,
-test-data layers, custom reporters, or environment configuration on
-purpose — those are course topics you will build properly later. Treat
-it as a spare tire, not the car.
+Beyond the Lab-0 scaffold it now includes (added across increments):
+
+- `tests/pages/` — Page Objects; `tests/fixtures.ts` — authenticated
+  fixtures; `tests/data/` — typed test data.
+- `tests/api/` — DummyJSON contract suite; `tests/saucedemo.spec.ts` —
+  SauceDemo UI scenarios; `tests/example.spec.ts` — scaffold smoke spec.
+- `observability/` — normalized run history, metrics, and generated
+  `report.md` (see `../docs/observability.md`; `observe:*` npm scripts).
+- `tests/observability/` — unit tests for that pipeline (synthetic
+  fixtures only, never real evidence).
+
+Useful commands: `npm test`, `npm run typecheck`,
+`npm run test:observability`, `npm run observe:report`.

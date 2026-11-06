@@ -73,6 +73,26 @@ Importing CI evidence: download the `observability-results` artifact
 from a GitHub Actions run, unzip it, and `observe import` each
 `*-results.json`. Nothing is fetched or pushed automatically.
 
+> **Per-step run identity (required for CI imports):** the workflow runs
+> three test steps inside one job, so the default
+> `gha:{runId}:{attempt}:{job}` identity is identical for all three files
+> — importing without an override deduplicates them into a single run
+> and loses two gates. Always pass a step suffix:
+>
+> ``` bash
+> npm run observe:import -- api-results.json  --source ci \
+>   --run-id "gha:<RUN_ID>:<ATTEMPT>:test:api"
+> npm run observe:import -- unit-results.json --source ci \
+>   --run-id "gha:<RUN_ID>:<ATTEMPT>:test:unit"
+> npm run observe:import -- ui-results.json   --source ci \
+>   --run-id "gha:<RUN_ID>:<ATTEMPT>:test:ui"
+> ```
+>
+> When importing outside CI, set the real `GITHUB_*` values of the run
+> (`GITHUB_WORKFLOW/RUN_ID/RUN_ATTEMPT/JOB/SHA/REF_NAME/SERVER_URL/
+> REPOSITORY`) so workflow provenance and the run URL are recorded
+> truthfully. See `docs/adr/0002-ci-step-run-identity.md`.
+
 ## Contract — `ai-native-qa/observability` v1
 
 Defined and validated in `starter/observability/src/contract.ts`

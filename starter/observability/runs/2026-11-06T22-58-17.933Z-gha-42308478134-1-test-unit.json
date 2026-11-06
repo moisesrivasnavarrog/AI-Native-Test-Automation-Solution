@@ -1,0 +1,705 @@
+{
+  "schemaVersion": "1.0.0",
+  "run": {
+    "runId": "gha:42308478134:1:test:unit",
+    "source": "github-actions",
+    "importedAt": "2026-11-06T23:26:38.940Z",
+    "executedAt": "2026-11-06T22:58:17.933Z",
+    "commitSha": "a1e52f98b3ab9768ffa186943658f87bf70897dc",
+    "branch": "main",
+    "workflow": {
+      "name": "Playwright Tests",
+      "runId": "42308478134",
+      "runAttempt": "1",
+      "job": "test",
+      "url": "https://github.com/moisesrivasnavarrog/AI-Native-Test-Automation-Solution/actions/runs/42308478134"
+    },
+    "playwrightVersion": "1.64.1",
+    "completeness": "complete",
+    "completenessReason": null,
+    "provenance": {
+      "run.executedAt": "stats.startTime",
+      "summary.durationMs": "stats.duration",
+      "tests[].testKey": "sha256(projectName|spec.file|suitePath|spec.title)",
+      "tests[].outcome": "tests[].status (expected→passed, unexpected→failed)",
+      "tests[].expectedStatus": "tests[].expectedStatus",
+      "tests[].durationMs": "sum(tests[].results[].duration)",
+      "tests[].attempts[]": "tests[].results[] {status,duration,retry,startTime,error}",
+      "run.commitSha": "env GITHUB_SHA or `git rev-parse HEAD`",
+      "run.branch": "env GITHUB_REF_NAME or `git rev-parse --abbrev-ref HEAD`",
+      "run.workflow": "env GITHUB_WORKFLOW/GITHUB_RUN_ID/GITHUB_RUN_ATTEMPT/GITHUB_JOB",
+      "run.playwrightVersion": "node_modules/@playwright/test/package.json"
+    }
+  },
+  "suite": {
+    "projectSet": [
+      "chromium"
+    ],
+    "specFileCount": 4,
+    "specFiles": [
+      "observability/history.spec.ts",
+      "observability/metrics.spec.ts",
+      "observability/parse.spec.ts",
+      "observability/report.spec.ts"
+    ]
+  },
+  "summary": {
+    "total": 28,
+    "passed": 28,
+    "failed": 0,
+    "flaky": 0,
+    "skipped": 0,
+    "unknown": 0,
+    "durationMs": 1058.904
+  },
+  "tests": [
+    {
+      "testKey": "e9a97c38d4836c2d",
+      "title": "saves a run and reloads it losslessly",
+      "suitePath": [
+        "observability/history.spec.ts",
+        "observability history"
+      ],
+      "file": "observability/history.spec.ts",
+      "project": "chromium",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 9,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 9,
+          "startTime": "2026-11-06T22:58:18.629Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "2ebcf3e65a58b6cb",
+      "title": "re-importing the same runId is an idempotent no-op",
+      "suitePath": [
+        "observability/history.spec.ts",
+        "observability history"
+      ],
+      "file": "observability/history.spec.ts",
+      "project": "chromium",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 2,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 2,
+          "startTime": "2026-11-06T22:58:18.669Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "ddcd2bb8880153b4",
+      "title": "distinct runs accumulate",
+      "suitePath": [
+        "observability/history.spec.ts",
+        "observability history"
+      ],
+      "file": "observability/history.spec.ts",
+      "project": "chromium",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 1,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 1,
+          "startTime": "2026-11-06T22:58:18.679Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "fe922ba0a519a948",
+      "title": "corrupt files are reported non-processable, not fatal",
+      "suitePath": [
+        "observability/history.spec.ts",
+        "observability history"
+      ],
+      "file": "observability/history.spec.ts",
+      "project": "chromium",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 5,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 5,
+          "startTime": "2026-11-06T22:58:18.692Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "5978f6056fb6a56b",
+      "title": "pass rate uses executed tests as denominator; skipped excluded",
+      "suitePath": [
+        "observability/metrics.spec.ts",
+        "observability metrics"
+      ],
+      "file": "observability/metrics.spec.ts",
+      "project": "chromium",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 2,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 2,
+          "startTime": "2026-11-06T22:58:18.727Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "1fb1074fdc3573d5",
+      "title": "returns null rates when denominators are zero — never divides by zero",
+      "suitePath": [
+        "observability/metrics.spec.ts",
+        "observability metrics"
+      ],
+      "file": "observability/metrics.spec.ts",
+      "project": "chromium",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 1,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 1,
+          "startTime": "2026-11-06T22:58:18.736Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "d740135309109652",
+      "title": "percentiles require at least 5 executed tests",
+      "suitePath": [
+        "observability/metrics.spec.ts",
+        "observability metrics"
+      ],
+      "file": "observability/metrics.spec.ts",
+      "project": "chromium",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 2,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 2,
+          "startTime": "2026-11-06T22:58:18.745Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "17d123accc00f3c3",
+      "title": "comparability requires same projects AND spec files",
+      "suitePath": [
+        "observability/metrics.spec.ts",
+        "observability metrics"
+      ],
+      "file": "observability/metrics.spec.ts",
+      "project": "chromium",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 2,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 2,
+          "startTime": "2026-11-06T22:58:18.755Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "eb25ae985988ccff",
+      "title": "single-run history yields insufficientData — no fabricated trend",
+      "suitePath": [
+        "observability/metrics.spec.ts",
+        "observability metrics"
+      ],
+      "file": "observability/metrics.spec.ts",
+      "project": "chromium",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 1,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 1,
+          "startTime": "2026-11-06T22:58:18.771Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "5752a7218e73bc72",
+      "title": "two comparable runs produce a computed delta",
+      "suitePath": [
+        "observability/metrics.spec.ts",
+        "observability metrics"
+      ],
+      "file": "observability/metrics.spec.ts",
+      "project": "chromium",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 9,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 9,
+          "startTime": "2026-11-06T22:58:18.781Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "142d80594d772763",
+      "title": "non-comparable runs are excluded from the cohort with a note",
+      "suitePath": [
+        "observability/metrics.spec.ts",
+        "observability metrics"
+      ],
+      "file": "observability/metrics.spec.ts",
+      "project": "chromium",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 1,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 1,
+          "startTime": "2026-11-06T22:58:18.800Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "ce2f6b906141ef59",
+      "title": "per-test flakiness aggregates across comparable runs only",
+      "suitePath": [
+        "observability/metrics.spec.ts",
+        "observability metrics"
+      ],
+      "file": "observability/metrics.spec.ts",
+      "project": "chromium",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 1,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 1,
+          "startTime": "2026-11-06T22:58:18.817Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "0b529ddf599634b4",
+      "title": "parses a valid report with passed and failed tests",
+      "suitePath": [
+        "observability/parse.spec.ts",
+        "observability parser"
+      ],
+      "file": "observability/parse.spec.ts",
+      "project": "chromium",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 1,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 1,
+          "startTime": "2026-11-06T22:58:18.829Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "09144421e962c65e",
+      "title": "keeps skipped separate from executed outcomes",
+      "suitePath": [
+        "observability/parse.spec.ts",
+        "observability parser"
+      ],
+      "file": "observability/parse.spec.ts",
+      "project": "chromium",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 1,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 1,
+          "startTime": "2026-11-06T22:58:18.836Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "374fa926d9a827dd",
+      "title": "counts a fail-then-retry-pass once as flaky, never as two tests",
+      "suitePath": [
+        "observability/parse.spec.ts",
+        "observability parser"
+      ],
+      "file": "observability/parse.spec.ts",
+      "project": "chromium",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 2,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 2,
+          "startTime": "2026-11-06T22:58:18.850Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "73757dfc133ddacb",
+      "title": "rejects non-report input instead of coercing it",
+      "suitePath": [
+        "observability/parse.spec.ts",
+        "observability parser"
+      ],
+      "file": "observability/parse.spec.ts",
+      "project": "chromium",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 1,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 1,
+          "startTime": "2026-11-06T22:58:18.858Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "23af76b10f27c466",
+      "title": "marks completeness unknown when stats block is missing",
+      "suitePath": [
+        "observability/parse.spec.ts",
+        "observability parser"
+      ],
+      "file": "observability/parse.spec.ts",
+      "project": "chromium",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 0,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 0,
+          "startTime": "2026-11-06T22:58:18.865Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "cebf7ef19835e96a",
+      "title": "marks run partial when stats disagree with extracted tests",
+      "suitePath": [
+        "observability/parse.spec.ts",
+        "observability parser"
+      ],
+      "file": "observability/parse.spec.ts",
+      "project": "chromium",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 0,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 0,
+          "startTime": "2026-11-06T22:58:18.878Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "96fa965068cb8427",
+      "title": "flags interrupted attempts as partial with a reason",
+      "suitePath": [
+        "observability/parse.spec.ts",
+        "observability parser"
+      ],
+      "file": "observability/parse.spec.ts",
+      "project": "chromium",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 0,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 0,
+          "startTime": "2026-11-06T22:58:18.884Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "051fd80c16d547ba",
+      "title": "distinguishes identical titles across Playwright projects",
+      "suitePath": [
+        "observability/parse.spec.ts",
+        "observability parser"
+      ],
+      "file": "observability/parse.spec.ts",
+      "project": "chromium",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 1,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 1,
+          "startTime": "2026-11-06T22:58:18.891Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "fbea8b8c8c281b29",
+      "title": "persists error fingerprints and kinds — never raw messages",
+      "suitePath": [
+        "observability/parse.spec.ts",
+        "observability parser"
+      ],
+      "file": "observability/parse.spec.ts",
+      "project": "chromium",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 1,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 1,
+          "startTime": "2026-11-06T22:58:18.898Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "d162381e717a37c4",
+      "title": "classifies timeout errors distinctly from assertions",
+      "suitePath": [
+        "observability/parse.spec.ts",
+        "observability parser"
+      ],
+      "file": "observability/parse.spec.ts",
+      "project": "chromium",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 0,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 0,
+          "startTime": "2026-11-06T22:58:18.913Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "1c9741c004553b07",
+      "title": "honors expectedStatus for test.fail (expected failure → passed)",
+      "suitePath": [
+        "observability/parse.spec.ts",
+        "observability parser"
+      ],
+      "file": "observability/parse.spec.ts",
+      "project": "chromium",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 1,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 1,
+          "startTime": "2026-11-06T22:58:18.919Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "02a8f7ae71159804",
+      "title": "empty history renders Insufficient data, not zeros",
+      "suitePath": [
+        "observability/report.spec.ts",
+        "observability report"
+      ],
+      "file": "observability/report.spec.ts",
+      "project": "chromium",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 1,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 1,
+          "startTime": "2026-11-06T22:58:18.930Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "88ac8538acb443ed",
+      "title": "a single real run shows metrics but no fabricated trend",
+      "suitePath": [
+        "observability/report.spec.ts",
+        "observability report"
+      ],
+      "file": "observability/report.spec.ts",
+      "project": "chromium",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 1,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 1,
+          "startTime": "2026-11-06T22:58:18.942Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "ed74c6f5bafef399",
+      "title": "non-comparable history states the exclusion explicitly",
+      "suitePath": [
+        "observability/report.spec.ts",
+        "observability report"
+      ],
+      "file": "observability/report.spec.ts",
+      "project": "chromium",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 1,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 1,
+          "startTime": "2026-11-06T22:58:18.950Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "8e5ecb22aeae4cfe",
+      "title": "sensitive strings in source errors never reach the report",
+      "suitePath": [
+        "observability/report.spec.ts",
+        "observability report"
+      ],
+      "file": "observability/report.spec.ts",
+      "project": "chromium",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 0,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 0,
+          "startTime": "2026-11-06T22:58:18.957Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "5d5c261b13ace177",
+      "title": "partial runs and non-processable files are surfaced in Data quality",
+      "suitePath": [
+        "observability/report.spec.ts",
+        "observability report"
+      ],
+      "file": "observability/report.spec.ts",
+      "project": "chromium",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 0,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 0,
+          "startTime": "2026-11-06T22:58:18.963Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    }
+  ],
+  "evidence": {
+    "htmlReport": "playwright-report/index.html",
+    "artifactName": null
+  }
+}

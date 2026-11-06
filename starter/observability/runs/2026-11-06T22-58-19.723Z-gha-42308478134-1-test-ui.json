@@ -1,0 +1,331 @@
+{
+  "schemaVersion": "1.0.0",
+  "run": {
+    "runId": "gha:42308478134:1:test:ui",
+    "source": "github-actions",
+    "importedAt": "2026-11-06T23:26:39.338Z",
+    "executedAt": "2026-11-06T22:58:19.723Z",
+    "commitSha": "a1e52f98b3ab9768ffa186943658f87bf70897dc",
+    "branch": "main",
+    "workflow": {
+      "name": "Playwright Tests",
+      "runId": "42308478134",
+      "runAttempt": "1",
+      "job": "test",
+      "url": "https://github.com/moisesrivasnavarrog/AI-Native-Test-Automation-Solution/actions/runs/42308478134"
+    },
+    "playwrightVersion": "1.64.1",
+    "completeness": "complete",
+    "completenessReason": null,
+    "provenance": {
+      "run.executedAt": "stats.startTime",
+      "summary.durationMs": "stats.duration",
+      "tests[].testKey": "sha256(projectName|spec.file|suitePath|spec.title)",
+      "tests[].outcome": "tests[].status (expected→passed, unexpected→failed)",
+      "tests[].expectedStatus": "tests[].expectedStatus",
+      "tests[].durationMs": "sum(tests[].results[].duration)",
+      "tests[].attempts[]": "tests[].results[] {status,duration,retry,startTime,error}",
+      "run.commitSha": "env GITHUB_SHA or `git rev-parse HEAD`",
+      "run.branch": "env GITHUB_REF_NAME or `git rev-parse --abbrev-ref HEAD`",
+      "run.workflow": "env GITHUB_WORKFLOW/GITHUB_RUN_ID/GITHUB_RUN_ATTEMPT/GITHUB_JOB",
+      "run.playwrightVersion": "node_modules/@playwright/test/package.json"
+    }
+  },
+  "suite": {
+    "projectSet": [
+      "chromium",
+      "firefox",
+      "webkit"
+    ],
+    "specFileCount": 2,
+    "specFiles": [
+      "example.spec.ts",
+      "saucedemo.spec.ts"
+    ]
+  },
+  "summary": {
+    "total": 12,
+    "passed": 12,
+    "failed": 0,
+    "flaky": 0,
+    "skipped": 0,
+    "unknown": 0,
+    "durationMs": 19441.446
+  },
+  "tests": [
+    {
+      "testKey": "d7f63d0275d2bb16",
+      "title": "has title",
+      "suitePath": [
+        "example.spec.ts"
+      ],
+      "file": "example.spec.ts",
+      "project": "chromium",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 345,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 345,
+          "startTime": "2026-11-06T22:58:20.250Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "03f70ec82ba32b47",
+      "title": "get started link",
+      "suitePath": [
+        "example.spec.ts"
+      ],
+      "file": "example.spec.ts",
+      "project": "chromium",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 515,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 515,
+          "startTime": "2026-11-06T22:58:20.864Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "08dccc8d5f205336",
+      "title": "has title",
+      "suitePath": [
+        "example.spec.ts"
+      ],
+      "file": "example.spec.ts",
+      "project": "firefox",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 2423,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 2423,
+          "startTime": "2026-11-06T22:58:22.664Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "435fe033e9f30ef1",
+      "title": "get started link",
+      "suitePath": [
+        "example.spec.ts"
+      ],
+      "file": "example.spec.ts",
+      "project": "firefox",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 1459,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 1459,
+          "startTime": "2026-11-06T22:58:26.870Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "9996b6b019791ba8",
+      "title": "has title",
+      "suitePath": [
+        "example.spec.ts"
+      ],
+      "file": "example.spec.ts",
+      "project": "webkit",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 3266,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 3266,
+          "startTime": "2026-11-06T22:58:30.493Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "761712f97edb9157",
+      "title": "get started link",
+      "suitePath": [
+        "example.spec.ts"
+      ],
+      "file": "example.spec.ts",
+      "project": "webkit",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 3016,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 3016,
+          "startTime": "2026-11-06T22:58:34.432Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "efd3d27f6edfac5b",
+      "title": "standard user can log in and sees the products page",
+      "suitePath": [
+        "saucedemo.spec.ts",
+        "SauceDemo"
+      ],
+      "file": "saucedemo.spec.ts",
+      "project": "chromium",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 390,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 390,
+          "startTime": "2026-11-06T22:58:21.396Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "3f34dd67e82a3ecf",
+      "title": "standard user can add Sauce Labs Backpack to the cart",
+      "suitePath": [
+        "saucedemo.spec.ts",
+        "SauceDemo"
+      ],
+      "file": "saucedemo.spec.ts",
+      "project": "chromium",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 484,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 484,
+          "startTime": "2026-11-06T22:58:21.798Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "0ae6e9000aa8b444",
+      "title": "standard user can log in and sees the products page",
+      "suitePath": [
+        "saucedemo.spec.ts",
+        "SauceDemo"
+      ],
+      "file": "saucedemo.spec.ts",
+      "project": "firefox",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 631,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 631,
+          "startTime": "2026-11-06T22:58:28.358Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "cfa388313a68b174",
+      "title": "standard user can add Sauce Labs Backpack to the cart",
+      "suitePath": [
+        "saucedemo.spec.ts",
+        "SauceDemo"
+      ],
+      "file": "saucedemo.spec.ts",
+      "project": "firefox",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 808,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 808,
+          "startTime": "2026-11-06T22:58:29.015Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "ada6ba1d9fc15fcd",
+      "title": "standard user can log in and sees the products page",
+      "suitePath": [
+        "saucedemo.spec.ts",
+        "SauceDemo"
+      ],
+      "file": "saucedemo.spec.ts",
+      "project": "webkit",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 608,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 608,
+          "startTime": "2026-11-06T22:58:37.468Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    },
+    {
+      "testKey": "e86fecbdf7a6787d",
+      "title": "standard user can add Sauce Labs Backpack to the cart",
+      "suitePath": [
+        "saucedemo.spec.ts",
+        "SauceDemo"
+      ],
+      "file": "saucedemo.spec.ts",
+      "project": "webkit",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 996,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 996,
+          "startTime": "2026-11-06T22:58:38.090Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    }
+  ],
+  "evidence": {
+    "htmlReport": "playwright-report/index.html",
+    "artifactName": null
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "1.0.0",
+  "run": {
+    "runId": "sha256:4631f0d7d8f75793",
+    "source": "local",
+    "importedAt": "2026-11-06T22:20:06.233Z",
+    "executedAt": "2026-11-06T22:15:12.658Z",
+    "commitSha": "bc42a436a5ae0ab513de9f5d1ec93842623d3b1f",
+    "branch": "main",
+    "workflow": {
+      "name": null,
+      "runId": null,
+      "runAttempt": null,
+      "job": null,
+      "url": null
+    },
+    "playwrightVersion": "1.64.1",
+    "completeness": "complete",
+    "completenessReason": null,
+    "provenance": {
+      "run.executedAt": "stats.startTime",
+      "summary.durationMs": "stats.duration",
+      "tests[].testKey": "sha256(projectName|spec.file|suitePath|spec.title)",
+      "tests[].outcome": "tests[].status (expected→passed, unexpected→failed)",
+      "tests[].expectedStatus": "tests[].expectedStatus",
+      "tests[].durationMs": "sum(tests[].results[].duration)",
+      "tests[].attempts[]": "tests[].results[] {status,duration,retry,startTime,error}",
+      "run.commitSha": "env GITHUB_SHA or `git rev-parse HEAD`",
+      "run.branch": "env GITHUB_REF_NAME or `git rev-parse --abbrev-ref HEAD`",
+      "run.workflow": "env GITHUB_WORKFLOW/GITHUB_RUN_ID/GITHUB_RUN_ATTEMPT/GITHUB_JOB",
+      "run.playwrightVersion": "node_modules/@playwright/test/package.json"
+    }
+  },
+  "suite": {
+    "projectSet": [
+      "chromium"
+    ],
+    "specFileCount": 1,
+    "specFiles": [
+      "api/products.spec.ts"
+    ]
+  },
+  "summary": {
+    "total": 1,
+    "passed": 1,
+    "failed": 0,
+    "flaky": 0,
+    "skipped": 0,
+    "unknown": 0,
+    "durationMs": 1485.3039999999999
+  },
+  "tests": [
+    {
+      "testKey": "f5b755fea4bed4a3",
+      "title": "returns the requested product by id",
+      "suitePath": [
+        "api/products.spec.ts",
+        "DummyJSON Products API"
+      ],
+      "file": "api/products.spec.ts",
+      "project": "chromium",
+      "expectedStatus": "passed",
+      "outcome": "passed",
+      "durationMs": 400,
+      "attempts": [
+        {
+          "retry": 0,
+          "status": "passed",
+          "durationMs": 400,
+          "startTime": "2026-11-06T22:15:13.656Z",
+          "errorFingerprint": null,
+          "errorKind": null
+        }
+      ]
+    }
+  ],
+  "evidence": {
+    "htmlReport": "playwright-report/index.html",
+    "artifactName": null
+  }
+}

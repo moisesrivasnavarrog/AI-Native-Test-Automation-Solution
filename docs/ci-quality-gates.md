@@ -50,10 +50,19 @@ a distinct file per gate instead of overwriting a shared one. See
   `tests/data/users.ts` are the site's public demo login.
 - `concurrency` cancels superseded runs on the same ref.
 
-## Marking the check as required (manual step)
+## Required check status
 
-The workflow only *produces* the check. Blocking merges on it is a
-repository setting — configure it manually:
+**Configured.** As of 2026-11-06, `main` has branch protection requiring
+the **`test`** check (this job) before merging — set via the GitHub API.
+`enforce_admins` is `false`, so a repository admin can still bypass;
+treat that as a documented residual, not a hidden one.
+
+Fail-propagation is evidenced: PR #1 (demo branch, deleted) produced red
+run `42308709001` — an intentional failure stopped the pipeline at the
+Observability unit tests gate.
+
+If protection ever needs recreating (new repo/fork), the manual steps
+are:
 
 1. Repository → **Settings** → **Branches** → **Add branch ruleset**
    (or classic *branch protection rule*) for `main`.
